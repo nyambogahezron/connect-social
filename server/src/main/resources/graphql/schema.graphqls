@@ -2,6 +2,14 @@ type Query {
     # Posts
     posts: [Post]
     post(id: ID!): Post
+    
+    # Users
+    user(id: ID!): User
+    me: User
+    
+    # Chat
+    myChats: [Chat]
+    chat(id: ID!): Chat
 }
 
 type Mutation {
@@ -11,6 +19,32 @@ type Mutation {
     
     # Posts
     createPost(content: String!, imageUrl: String): Post
+    
+    # Comments
+    addComment(postId: ID!, content: String!): Comment
+
+    # Profile
+    updateProfile(bio: String, avatar: String): User
+    follow(userId: ID!): Boolean
+    unfollow(userId: ID!): Boolean
+    
+    # Chat
+    startChat(participantUserId: ID!): Chat
+    sendMessage(chatId: ID!, content: String!): Message
+}
+
+type Chat {
+    id: ID!
+    participants: [User]
+    messages: [Message]
+    lastMessage: Message
+}
+
+type Message {
+    id: ID!
+    content: String!
+    sender: User!
+    timestamp: String!
 }
 
 # Types
@@ -19,12 +53,21 @@ type User {
     username: String!
     email: String!
     avatar: String
+    bio: String
 }
 
 type Post {
     id: ID!
     content: String!
     imageUrl: String
+    user: User!
+    timestamp: String!
+    comments: [Comment]
+}
+
+type Comment {
+    id: ID!
+    content: String!
     user: User!
     timestamp: String!
 }

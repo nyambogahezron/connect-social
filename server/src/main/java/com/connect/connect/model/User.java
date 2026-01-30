@@ -21,6 +21,8 @@ public class User {
     private String password;
 
     private String avatar;
+    
+    private String bio;
 
     public User() {}
 
@@ -44,4 +46,7 @@ public class User {
 
     public String getAvatar() { return avatar; }
     public void setAvatar(String avatar) { this.avatar = avatar; }
+
+    public String getBio() { return bio; }
+    public void setBio(String bio) { this.bio = bio; }
 }
