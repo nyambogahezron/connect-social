@@ -12,9 +12,6 @@ import com.hezron.connect.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,17 +19,24 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        return binding.root
+    }
+    
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        
+        val adapter = com.hezron.connect.ui.adapter.FeedAdapter { post ->
+            // Handle click, e.g., navigate to detail
+            // findNavController().navigate(...)
+            // Toast.makeText(context, "Clicked ${post.user.name}", Toast.LENGTH_SHORT).show()
         }
-        return root
+        
+        binding.rvFeed.adapter = adapter
+        binding.rvFeed.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
+        
+        // Load dummy data
+        adapter.submitList(com.hezron.connect.util.DummyDataUtil.getPosts())
     }
 
     override fun onDestroyView() {

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Profile Header -->
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_posts_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_posts_label"
+        app:layout_constraintEnd_toStartOf="@+id/tv_followers_count"
+        app:layout_constraintStart_toEndOf="@+id/iv_avatar"
+        app:layout_constraintTop_toTopOf="@+id/iv_avatar" />
+
+    <TextView
+        android:id="@+id/tv_posts_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posts"
+        app:layout_constraintEnd_toEndOf="@+id/tv_posts_count"
+        app:layout_constraintStart_toStartOf="@+id/tv_posts_count"
+        app:layout_constraintTop_toBottomOf="@+id/tv_posts_count" />
+
+    <TextView
+        android:id="@+id/tv_followers_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2.4k"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_followers_label"
+        app:layout_constraintEnd_toStartOf="@+id/tv_following_count"
+        app:layout_constraintStart_toEndOf="@+id/tv_posts_count"
+        app:layout_constraintTop_toTopOf="@+id/tv_posts_count" />
+        
+    <TextView
+        android:id="@+id/tv_followers_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Followers"
+        app:layout_constraintEnd_toEndOf="@+id/tv_followers_count"
+        app:layout_constraintStart_toStartOf="@+id/tv_followers_count"
+        app:layout_constraintTop_toBottomOf="@+id/tv_followers_count" />
+
+    <TextView
+        android:id="@+id/tv_following_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="120"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_following_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_followers_count"
+        app:layout_constraintTop_toTopOf="@+id/tv_posts_count" />
+        
+    <TextView
+        android:id="@+id/tv_following_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Following"
+        app:layout_constraintEnd_toEndOf="@+id/tv_following_count"
+        app:layout_constraintStart_toStartOf="@+id/tv_following_count"
+        app:layout_constraintTop_toBottomOf="@+id/tv_following_count" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Other User"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/iv_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
+
+    <Button
+        android:id="@+id/btn_follow"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Follow"
+        android:backgroundTint="@color/design_default_color_primary"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+        
+    <Button
+        android:id="@+id/btn_message"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Message"
+        android:backgroundTint="#F0F0F0"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_follow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
