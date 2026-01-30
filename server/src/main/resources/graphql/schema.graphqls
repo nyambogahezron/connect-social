@@ -1,0 +1,47 @@
+type Query {
+    # Posts
+    posts: [Post]
+    post(id: ID!): Post
+}
+
+type Mutation {
+    # Auth
+    register(input: RegisterInput!): AuthPayload
+    login(input: LoginInput!): AuthPayload
+    
+    # Posts
+    createPost(content: String!, imageUrl: String): Post
+}
+
+# Types
+type User {
+    id: ID!
+    username: String!
+    email: String!
+    avatar: String
+}
+
+type Post {
+    id: ID!
+    content: String!
+    imageUrl: String
+    user: User!
+    timestamp: String!
+}
+
+type AuthPayload {
+    token: String!
+    user: User!
+}
+
+# Inputs
+input RegisterInput {
+    username: String!
+    email: String!
+    password: String!
+}
+
+input LoginInput {
+    email: String!
+    password: String!
+}
