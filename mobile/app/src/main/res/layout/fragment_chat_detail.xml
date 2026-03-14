@@ -50,6 +50,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Input Area -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_messages"
         android:layout_width="match_parent"
@@ -57,9 +58,10 @@
         android:background="#FAFAFA"
         app:layout_constraintBottom_toTopOf="@id/layout_input"
         app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-16dp"
         tools:listitem="@layout/item_message_sent" />
 
-    <!-- Input Area -->
     <LinearLayout
         android:id="@+id/layout_input"
         android:layout_width="match_parent"
@@ -73,13 +75,13 @@
         <EditText
             android:id="@+id/et_message"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:hint="Type a message..."
-            android:padding="12dp"
             android:background="@drawable/ic_launcher_background"
             android:backgroundTint="#F0F0F0"
-            android:maxLines="4"/>
+            android:hint="Type a message..."
+            android:maxLines="4"
+            android:padding="12dp" />
 
         <Button
             android:id="@+id/btn_send"
